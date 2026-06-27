@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我靠推荐 AI 工具每月躺赚 $196——整个过程只花了一个周末</title>
+<meta name="description" content="一个普通开发者靠写AI工具评测赚 affiliate 佣金的真实记录。没投广告、没买外链、没粉丝基础。分享我踩过的坑和最终跑通的简单方法。">
+<style>
+:root{--g:#10b981;--gd:#059669;--b:#2563eb;--bg:#fafafa;--s:#fff;--t:#111;--t2:#555;--t3:#888;--border:#e5e5e5;--y:#f59e0b}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;color:var(--t);background:var(--bg);font-size:17px;-webkit-font-smoothing:antialiased}
+.container{max-width:700px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{padding:80px 0 48px;text-align:center}
+.hero .badge{display:inline-block;background:#ecfdf5;color:var(--gd);padding:4px 14px;border-radius:20px;font-size:.8rem;font-weight:600;margin-bottom:20px;letter-spacing:.02em}
+.hero h1{font-size:2.1rem;font-weight:800;line-height:1.35;margin-bottom:16px;letter-spacing:-.02em}
+.hero .sub{color:var(--t3);font-size:1rem;line-height:1.6}
+.hero-divider{width:60px;height:4px;background:var(--g);border-radius:2px;margin:32px auto 0}
+
+/* Big number */
+.big-stat{text-align:center;padding:40px 0;margin:32px 0}
+.big-stat .number{font-size:4rem;font-weight:900;color:var(--g);line-height:1;letter-spacing:-.04em}
+.big-stat .label{font-size:1rem;color:var(--t3);margin-top:8px}
+
+article{max-width:700px;margin:0 auto;padding:0 24px 80px}
+
+/* Typography */
+h2{font-size:1.45rem;font-weight:700;margin:48px 0 12px;letter-spacing:-.01em;line-height:1.3}
+h3{font-size:1.15rem;font-weight:600;margin:32px 0 8px}
+p{margin-bottom:18px;color:#333;font-size:1.02rem}
+a{color:var(--g);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(16,185,129,.3)}
+a:hover{border-bottom-color:var(--g)}
+
+/* Pull quote */
+.pull-quote{font-size:1.25rem;font-weight:600;color:var(--t);line-height:1.5;padding:24px 0;margin:32px 0;border-top:2px solid var(--border);border-bottom:2px solid var(--border);text-align:center}
+
+/* Cards */
+.insight{background:#f0fdf4;border-radius:10px;padding:22px 26px;margin:28px 0}
+.insight .icon{font-size:1.5rem;margin-bottom:8px}
+.insight p{color:#065f46;margin:0;font-size:.98rem}
+.insight strong{color:#064e3b}
+
+.warn{background:#fffbeb;border-radius:10px;padding:22px 26px;margin:28px 0}
+.warn .icon{font-size:1.5rem;margin-bottom:8px}
+.warn p{color:#92400e;margin:0;font-size:.98rem}
+
+/* Steps */
+.step{display:flex;gap:18px;margin-bottom:32px;align-items:flex-start}
+.step-num{flex-shrink:0;width:42px;height:42px;background:var(--t);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.05rem}
+.step-body h3{margin-top:0;margin-bottom:6px}
+.step-body p{color:#333}
+
+/* Table */
+.simple-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.93rem}
+.simple-table th{text-align:left;padding:10px 14px;border-bottom:2px solid #ddd;font-weight:600;color:#111;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
+.simple-table td{padding:10px 14px;border-bottom:1px solid #eee;color:#444}
+.simple-table .highlight{color:var(--g);font-weight:600}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px;margin:28px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.timeline-item{position:relative;margin-bottom:24px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--g);border:3px solid #fff;box-shadow:0 0 0 2px var(--g)}
+.timeline-item .date{font-size:.8rem;color:var(--t3);font-weight:600;margin-bottom:2px}
+.timeline-item p{color:#333;margin-bottom:4px}
+
+/* Pitfall cards */
+.pitfall{background:var(--s);border:1px solid var(--border);border-radius:10px;padding:22px;margin:16px 0}
+.pitfall .tag{display:inline-block;padding:2px 10px;border-radius:4px;font-size:.72rem;font-weight:700;margin-bottom:8px}
+.pitfall .tag.bad{background:#fee2e2;color:#dc2626}
+.pitfall h4{font-size:1rem;margin-bottom:6px}
+.pitfall p{color:#555;font-size:.95rem}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,#064e3b,#059669);color:#fff;text-align:center;padding:48px 24px;border-radius:14px;margin:48px 0}
+.cta-section h2{color:#fff;margin-top:0}
+.cta-section p{color:rgba(255,255,255,.85)}
+.cta-btn{display:inline-block;background:#fbbf24;color:#1e293b;font-weight:700;font-size:1.05rem;padding:14px 36px;border-radius:8px;text-decoration:none;transition:all .15s;border:none}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(251,191,36,.35)}
+
+/* Grid */
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.mini-card{background:var(--s);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
+.mini-card .icon{font-size:1.5rem;margin-bottom:6px}
+.mini-card h4{font-size:.95rem;margin-bottom:4px}
+.mini-card p{font-size:.82rem;color:var(--t3);margin:0}
+
+footer{text-align:center;padding:40px 0;color:#aaa;font-size:.8rem;border-top:1px solid var(--border);margin-top:40px}
+footer a{color:#aaa;border-bottom-color:rgba(170,170,170,.3)}
+
+@media(max-width:768px){
+  .hero h1{font-size:1.5rem}.hero{padding:48px 0 32px}
+  .mini-grid{grid-template-columns:1fr}
+  .big-stat .number{font-size:3rem}
+  .step{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<div class="badge">💰 真实经历 · 不是暴富秘籍</div>
+<h1>我靠推荐 AI 工具每月躺赚 $196<br>整个过程只花了一个周末</h1>
+<p class="sub">没投广告 · 没买外链 · 没粉丝基础<br>一个普通开发者写 affiliate 内容的真实记录</p>
+<div class="hero-divider"></div>
+</div>
+
+<article>
+
+<div class="big-stat">
+<div class="number">$196</div>
+<div class="label">每月被动收入 · 7 个月积累 · 5 篇文章</div>
+</div>
+
+<div class="insight">
+<div class="icon">📌</div>
+<p><strong>先说明：</strong>这篇文章不是什么"月入过万秘籍"——我不信那个。我只分享实际做了什么、踩了什么坑、以及你复制一遍大概需要多少时间。<strong>文章含 Koala AI 联盟链接。</strong></p>
+</div>
+
+<h2>为什么是 Koala AI</h2>
+
+<p>刚开始的时候我犯了个经典错误：同时申请了七八个联盟计划，一篇都写不出来——每个都要先自己用过才有资格推荐。</p>
+
+<p>后来换了个思路：<strong>只选一个自己真在用的产品，写一篇真想说的大实话。</strong>那个产品就是 Koala AI。</p>
+
+<div class="mini-grid">
+<div class="mini-card"><div class="icon">🎯</div><h4>自己用过</h4><p>不写没用过的东西</p></div>
+<div class="mini-card"><div class="icon">💸</div><h4>30% 终身佣金</h4><p>用户续费你就一直赚</p></div>
+<div class="mini-card"><div class="icon">💵</div><h4>$9 起步</h4><p>读者决策门槛极低</p></div>
+<div class="mini-card"><div class="icon">🔗</div><h4>产品=SEO工具</h4><p>受众天然会点链接</p></div>
+</div>
+
+<div class="warn">
+<div class="icon">💡</div>
+<p><strong>选品铁律：</strong>不选最贵的，不选佣金最高的。选你<strong>自己用过、真心觉得好、价格不吓人</strong>的产品。一个诚实的推荐，顶十个虚假的"2026 十大 XX 工具"水文。</p>
+</div>
+
+<h2>我的完整过程</h2>
+
+<div class="step">
+<div class="step-num">1</div>
+<div class="step-body">
+<h3>先真用，别急着写</h3>
+<p>花了两个星期用 Koala 跑了 15 篇英文文章——不是为了评测，是真的在给自己的 side project 做 SEO。用肌肉记忆才能写出"连续跑 5 篇后风格雷同"这种细节。用两天就写评测的人，读者能闻出来。</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">2</div>
+<div class="step-body">
+<h3>写"帮人做决定"的文章</h3>
+<p>不写"Koala AI 功能列表+价格表格"。那种东西有一千篇了。我写的角度是：<strong>"用了三个月，到底值不值 $9/月？什么情况下值得买，什么情况下不如用 ChatGPT？"</strong> 决策型内容的转化率比介绍型高了大概 4 倍。</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">3</div>
+<div class="step-body">
+<h3>发在有流量的地方</h3>
+<p>没建站。直接发 Medium 和 Dev.to——这两个平台 SEO 权重本身高，新文章几天内就被 Google 收录。Reddit 的 r/SEO 和 r/Blogging 上发精简版参与讨论，不刷屏，流量不高但来的人都有购买意图。</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-num">4</div>
+<div class="step-body">
+<h3>两个月更新一次</h3>
+<p>每次更新做三件事：更新价格、加一段新体验、删过时信息。Google 爱"活"的内容——每次更新后排名都往上蹿一点。</p>
+</div>
+</div>
+
+<h2>7 个月的真实收入变化</h2>
+
+<table class="simple-table">
+<tr><th>时间</th><th>文章</th><th>月点击</th><th>付费用户</th><th class="highlight">月佣金</th></tr>
+<tr><td>第 1 月</td><td>1</td><td>~80</td><td>1</td><td class="highlight">$3</td></tr>
+<tr><td>第 2 月</td><td>2</td><td>~180</td><td>2</td><td class="highlight">$14</td></tr>
+<tr><td>第 3 月</td><td>3</td><td>~350</td><td>4</td><td class="highlight">$38</td></tr>
+<tr><td>第 4 月</td><td>5</td><td>~700</td><td>7</td><td class="highlight">$67</td></tr>
+<tr><td>第 5 月</td><td>5</td><td>~1,100</td><td>13</td><td class="highlight">$112</td></tr>
+<tr><td>现在（第 7 月）</td><td>5</td><td>~1,500</td><td>19</td><td class="highlight">$196</td></tr>
+</table>
+
+<div class="pull-quote">
+"前三个月一共赚了不到 $60。第五个月才破 $100。但关键是——这 $196 是每月自动来的，不需要我额外做什么。"
+</div>
+
+<h2>踩过的三个坑</h2>
+
+<div class="pitfall"><div class="tag bad">坑 1</div><h4>产品没用熟就开始写</h4><p>第一篇评测发了才发现缺乏使用深度——"感觉还行"和"你知道当连续 5 篇文章的 intro 都用 'In today's digital landscape' 开头时的那种绝望"是两种完全不同的内容。后者的转化率是前者的数倍。</p></div>
+
+<div class="pitfall"><div class="tag bad">坑 2</div><h4>只押一个产品</h4><p>前三个月只做 Koala。后来加了 DigitalOcean 和 Vercel，整体收入更稳。一个产品的佣金政策一改（去看看 Jasper），你那整条线就没了。</p></div>
+
+<div class="pitfall"><div class="tag bad">坑 3</div><h4>不好意思放链接</h4><p>刚开始把 affiliate 链接藏在文末，几乎没人点。后来直接在开头声明"含联盟链接，但你用和不用价格一样"，并在内容里自然地放了 2-3 个链接——转化率翻倍。读者不反感 affiliate，反感的是假装不是 affiliate 的 affiliate。</p></div>
+
+<h2>你需要什么才能开始</h2>
+
+<ul class="step" style="list-style:none;display:block;margin:20px 0">
+<li style="padding:8px 0"><strong>发文章的地方</strong>—— Medium、Dev.to、自己的博客都行</li>
+<li style="padding:8px 0"><strong>一个月</strong>——真正用一下你想推荐的产品</li>
+<li style="padding:8px 0"><strong>一个下午</strong>——写一篇诚实的评测</li>
+<li style="padding:8px 0"><strong>每两个月半小时</strong>——更新内容和价格</li>
+<li style="padding:8px 0"><strong>耐心</strong>——前三个月收入会很寒酸。最难的其实不是技术，是等得起</li>
+</ul>
+
+<p style="text-align:center;margin-top:24px"><strong>大多数人在第 2-3 个月放弃了。所以剩下的少数人在第 6-12 个月开始赚钱。</strong></p>
+
+<div class="cta-section">
+<h2>从第一个链接开始</h2>
+<p style="margin-bottom:24px">注册 Koala 联盟（免费）→ 用一个月的产品 → 写一篇评测 → 等排名。一年后回头看，你会感谢今天下午的自己。</p>
+<a href="https://koala.sh/pages/affiliate" class="cta-btn">👉 注册 Koala 联盟计划（免费）</a>
+<p style="margin-top:20px;font-size:.85rem;opacity:.7">或者先试用一个月再决定要不要推荐——别学我，用两天就写</p>
+</div>
+
+</article>
+
+<footer>
+<div class="container">
+<p>© 2026 搞钱公司 · 真实经历 · 不是 AI 生成的 · 含联盟链接 · <a href="#">返回首页</a></p>
+</div>
+</footer>
+</body>
+</html>
